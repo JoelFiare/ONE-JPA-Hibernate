@@ -24,9 +24,8 @@ public class Producto {
 	
 	@ManyToOne
 	private Categoria categoria;
-	
+
 	public Producto() {
-		super();
 	}
 	
 	public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {
