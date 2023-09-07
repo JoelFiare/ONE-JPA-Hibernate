@@ -1,20 +1,16 @@
 package com.latam.alura.tienda.prueba;
 
-import com.latam.alura.tienda.dao.CategoriaDao;
-import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.Categoria;
-import com.latam.alura.tienda.modelo.Producto;
-import com.latam.alura.tienda.util.JPAUtil;
+import com.latam.alura.tienda.utils.JPAUtils;
 
 import javax.persistence.EntityManager;
-import java.math.BigDecimal;
 
 public class RegistroDeProducto2 {
 
 	public static void main(String[] args) {
 		Categoria celulares = new Categoria("CELULARES"); // Instanciamos estado TRANSIENTE
 
-	    EntityManager em = JPAUtil.getEntityManager();
+	    EntityManager em = JPAUtils.getEntityManager();
 
 	    em.getTransaction().begin();
 

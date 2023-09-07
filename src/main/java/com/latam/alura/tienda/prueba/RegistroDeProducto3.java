@@ -4,7 +4,7 @@ import com.latam.alura.tienda.dao.CategoriaDao;
 import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.Categoria;
 import com.latam.alura.tienda.modelo.Producto;
-import com.latam.alura.tienda.util.JPAUtil;
+import com.latam.alura.tienda.utils.JPAUtils;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
@@ -14,7 +14,7 @@ public class RegistroDeProducto3 {
 
     public static void main(String[] args) {
         registrarProducto();
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = JPAUtils.getEntityManager();
         ProductoDao produtoDao = new ProductoDao(em);
         Producto producto = produtoDao.consultaPorId(1L);
         System.out.println(producto.getNombre());
@@ -37,7 +37,7 @@ public class RegistroDeProducto3 {
 
         Producto celular = new Producto("Xiaomi Redmi", "Muy bueno", new BigDecimal("800"), celulares);
 
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = JPAUtils.getEntityManager();
         ProductoDao produtoDao = new ProductoDao(em);
         CategoriaDao categoriaDao = new CategoriaDao(em);
 

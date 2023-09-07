@@ -8,7 +8,7 @@ import com.latam.alura.tienda.dao.CategoriaDao;
 import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.Categoria;
 import com.latam.alura.tienda.modelo.Producto;
-import com.latam.alura.tienda.util.JPAUtil;
+import com.latam.alura.tienda.utils.JPAUtils;
 
 public class RegistroDeProducto {
 
@@ -17,7 +17,7 @@ public class RegistroDeProducto {
 
 		Producto celular = new Producto("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
 
-	    EntityManager em = JPAUtil.getEntityManager();
+	    EntityManager em = JPAUtils.getEntityManager();
 	    ProductoDao produtoDao = new ProductoDao(em);
         CategoriaDao categoriaDao = new CategoriaDao(em);
         
