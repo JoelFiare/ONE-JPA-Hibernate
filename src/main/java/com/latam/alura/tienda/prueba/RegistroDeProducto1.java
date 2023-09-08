@@ -10,44 +10,24 @@ import com.latam.alura.tienda.modelo.Categoria;
 import com.latam.alura.tienda.modelo.Producto;
 import com.latam.alura.tienda.utils.JPAUtils;
 
-public class RegistroDeProducto {
+public class RegistroDeProducto1 {
 
 	public static void main(String[] args) {
-		registrarProducto();
-		EntityManager em = JPAUtils.getEntityManager();
-	    ProductoDao productoDao = new ProductoDao(em);
-	    Producto producto = productoDao.consultaPorId(1l);
-	    System.out.println(producto.getNombre());
-	    
-	    BigDecimal precio = productoDao.consultarPrecioPorNombreDeProducto("Xiaomi Redmi");
-	    System.out.println(precio);
-
-	}
-
-	private static void registrarProducto() {
 		Categoria celulares = new Categoria("CELULARES");
 
-		Producto celular = new Producto("Xiaomi Redmi", "Muy bueno", new BigDecimal("800"), celulares);
+		Producto celular = new Producto("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
 
 	    EntityManager em = JPAUtils.getEntityManager();
-	    ProductoDao productoDao = new ProductoDao(em);
+	    ProductoDao produtoDao = new ProductoDao(em);
         CategoriaDao categoriaDao = new CategoriaDao(em);
         
 	    em.getTransaction().begin();
 	    
 	    categoriaDao.guardar(celulares);
-	    productoDao.guardar(celular);	
+	    produtoDao.guardar(celular);	
 	    
 	    em.getTransaction().commit();
 	    em.close();
 	}
 
 }
-
-
-
-
-
-
-
-
