@@ -3,15 +3,11 @@ package com.latam.alura.tienda.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "productos")
+@NamedQuery(name="Producto.consultaDePrecio", query = "select p.precio from Producto as p where p.nombre=:nombre")
 public class Producto {
 	
 	@Id
@@ -22,7 +18,7 @@ public class Producto {
 	private BigDecimal precio;
 	private LocalDate fechaDeRegistro = LocalDate.now();
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Categoria categoria;
 
 	public Producto() {
